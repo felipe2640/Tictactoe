@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector, play, reset } from "./store";
+import { useAppDispatch, useAppSelector, play, reset } from "../Store/store";
 
 export function TicTacToe() {
   const state = useAppSelector((state) => state.ticTacToe);

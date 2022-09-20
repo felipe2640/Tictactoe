@@ -5,14 +5,13 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-
-export type CellValue = "X" | "O" | "";
-export type Winner = "X" | "O" | "?" | "Empate";
-export interface ticTacToeState {
-  board: CellValue[][];
-  nextPlayer: "X" | "O";
-  winner: "X" | "O" | "?" | "Empate";
-}
+import { ticTacToeState } from "../Types/types-external";
+import {
+  AppDispatch,
+  CellValue,
+  RootState,
+  Winner,
+} from "../Types/types-internal";
 
 const initialState: ticTacToeState = {
   board: [
@@ -111,9 +110,6 @@ function getWinner(board: CellValue[][]): Winner {
   }
   return "Empate";
 }
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
